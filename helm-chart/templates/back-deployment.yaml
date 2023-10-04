@@ -359,7 +359,7 @@ spec:
             value: "False"
           {{ end }}
           {{- if .Values.async.extraVars }}
-          {{- toYaml .Values.async.extraVars | nindent 12 }}
+          {{- toYaml .Values.async.extraVars | nindent 10 }}
           {{- end }}
         volumeMounts:
           - name: taiga-static
