@@ -817,6 +817,7 @@ ingress:
   ## You can use the ingress.secrets parameter to create this TLS secret or relay on cert-manager to create it
   ##
   tls: false
+  secretName: ""
 
   ## Ingress annotations done as key:value pairs
   ## For a full list of possible ingress annotations,
