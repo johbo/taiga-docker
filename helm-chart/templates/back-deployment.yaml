@@ -181,7 +181,7 @@ spec:
             value: "False"
           {{ end }}
           {{- if .Values.back.extraVars }}
-          {{- toYaml .Values.back.extraVars | nindent 12 }}
+          {{- toYaml .Values.back.extraVars | nindent 10 }}
           {{- end }}
         ports:
           - name: taiga-back
