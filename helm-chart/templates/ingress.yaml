@@ -64,6 +64,13 @@ spec:
               port:
                 name: taiga-protected
           pathType: ImplementationSpecific
+        - path: /static
+          backend:
+            service:
+              name: "{{ template "taiga.fullname" . }}-front"
+              port:
+                name: taiga-front
+          pathType: ImplementationSpecific
         {{- end }}
     {{- end }}
     {{- range .Values.ingress.extraHosts }}
@@ -113,6 +120,13 @@ spec:
               name: "{{ template "taiga.fullname" . }}-protected"
               port:
                 name: taiga-protected
+          pathType: ImplementationSpecific
+        - path: /static
+          backend:
+            service:
+              name: "{{ template "taiga.fullname" . }}-front"
+              port:
+                name: taiga-front
           pathType: ImplementationSpecific
         {{- end }}
     {{- end }}
