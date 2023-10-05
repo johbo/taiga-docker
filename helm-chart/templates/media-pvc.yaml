@@ -5,6 +5,8 @@ apiVersion: v1
 metadata:
   name: {{ template "taiga.fullname" . }}-media
   labels: {{- include "taiga.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/resource-policy": keep
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode | quote }}
