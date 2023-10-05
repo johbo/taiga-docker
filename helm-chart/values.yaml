@@ -10,8 +10,10 @@
 
 ## Taiga secret key
 ##
+# TODO: Set to null by default or use random value by default and store in secret
 secretKey: 9%pno@m688el28@2+^y4v^&6wluqk-g#j#d7$dsjtht)o30dn1
 
+# TODO: The email settings seem to be unused, compare smtp below
 ## Email settings
 ##
 email:
@@ -79,11 +81,14 @@ trelloImporter:
 ## Create initial user with credentials admin/123123
 ## ref: https://taigaio.github.io/taiga-doc/dist/setup-production.html
 ##
+# TODO: set to false by default or create with a random password which is stored in a secret
+# or allow to pass in the data for username and secret
 createInitialUser: true
 
 ## Create initial templates
 ## ref: https://taigaio.github.io/taiga-doc/dist/setup-production.html
 ##
+# TODO: This values seems to be unused
 createInitialTemplates: false
 
 back:
@@ -953,9 +958,11 @@ async-rabbitmq:
 
   ## Create a rabbitmq username
   auth:
+    # TODO: Remove default values for secrets
     username: taiga
     password: taiga
-    
+
+    # TODO: Remove default values for secrets
     erlangCookie: h2SNqvsJRJAeSRUlkubZTlkRB0OJgYSu
 
   extraConfiguration: |-
@@ -974,9 +981,11 @@ events-rabbitmq:
 
   ## Create a rabbitmq username
   auth:
+    # TODO: Remove default values for secrets
     username: taiga
     password: taiga
-    
+
+    # TODO: Remove default values for secrets
     erlangCookie: h2SNqvsJRJAeSRUlkubZTlkRB0OJgYSu
 
   extraConfiguration: |-
