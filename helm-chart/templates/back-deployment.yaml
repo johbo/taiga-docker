@@ -46,7 +46,7 @@ spec:
           - name: POSTGRES_PASSWORD
             value: "{{ .Values.postgresql.auth.password }}"
           - name: POSTGRES_HOST
-            value: "{{ template "taiga.fullname" . }}-postgresql"
+            value: {{ default (printf "%s-postgresql" (include "taiga.fullname" .)) .Values.postgresql.host | quote }}
           - name: TAIGA_SECRET_KEY
             value: "{{ .Values.secretKey }}"
           {{ if .Values.ingress.enabled }}
@@ -215,6 +215,7 @@ spec:
             mountPath: /taiga-back/static
           - name: taiga-media
             mountPath: /taiga-back/media
+
       # https://www.caktusgroup.com/blog/2017/03/14/production-ready-dockerfile-your-python-django-app/
       - name: {{ template "taiga.fullname" . }}-async
         image: {{ template "taiga.async.image" . }}
@@ -226,13 +227,13 @@ spec:
         - /taiga-back/docker/async_entrypoint.sh
         env:
           - name: POSTGRES_DB
-            value: "{{ .Values.postgresql.postgresqlDatabase }}"
+            value: "{{ .Values.postgresql.database }}"
           - name: POSTGRES_USER
-            value: "{{ .Values.postgresql.postgresqlUsername }}"
+            value: "{{ .Values.postgresql.username }}"
           - name: POSTGRES_PASSWORD
-            value: "{{ .Values.postgresql.postgresqlPassword }}"
+            value: "{{ .Values.postgresql.password }}"
           - name: POSTGRES_HOST
-            value: "{{ template "taiga.fullname" . }}-postgresql"
+            value: {{ default (printf "%s-postgresql" (include "taiga.fullname" .)) .Values.postgresql.host | quote }}
           - name: TAIGA_SECRET_KEY
             value: "{{ .Values.secretKey }}"
           {{ if .Values.ingress.enabled }}
