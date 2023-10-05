@@ -227,11 +227,11 @@ spec:
         - /taiga-back/docker/async_entrypoint.sh
         env:
           - name: POSTGRES_DB
-            value: "{{ .Values.postgresql.database }}"
+            value: "{{ .Values.postgresql.auth.database }}"
           - name: POSTGRES_USER
-            value: "{{ .Values.postgresql.username }}"
+            value: "{{ .Values.postgresql.auth.username }}"
           - name: POSTGRES_PASSWORD
-            value: "{{ .Values.postgresql.password }}"
+            value: "{{ .Values.postgresql.auth.password }}"
           - name: POSTGRES_HOST
             value: {{ default (printf "%s-postgresql" (include "taiga.fullname" .)) .Values.postgresql.host | quote }}
           - name: TAIGA_SECRET_KEY
