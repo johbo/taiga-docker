@@ -1,7 +1,7 @@
 apiVersion: v2
 name: taiga
 appVersion: 6.0.0-latest
-version: 0.0.11
+version: 0.0.12
 description: A flexible project management web application.
 engine: gotpl
 home: https://www.taiga.io/
