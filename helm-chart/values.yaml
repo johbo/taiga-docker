@@ -879,10 +879,13 @@ serviceAccount:
 ##
 persistence:
   enabled: true
-  ## A manually manage Persistent Volume Claim
-  ## Requires persistence.enable: true
-  ## If defined, PVC must be created manually before volume will be bound
-  # existingClaim:
+
+  ## To use existing PVCs
+  static:
+    existingClaim: ""
+
+  media:
+    existingClaim: ""
 
   ## taiga data Persistent Volume Storage Class
   ## If defined, storageClassName: <storageClass>

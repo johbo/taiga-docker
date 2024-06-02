@@ -411,14 +411,14 @@ spec:
         - name: taiga-static
           {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "taiga.fullname" .) }}-static
+            claimName: {{ .Values.persistence.static.existingClaim | default (printf "%s-static" (include "taiga.fullname" .)) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
         - name: taiga-media
           {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "taiga.fullname" .) }}-media
+            claimName: {{ .Values.persistence.media.existingClaim | default (printf "%s-media" (include "taiga.fullname" .)) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
